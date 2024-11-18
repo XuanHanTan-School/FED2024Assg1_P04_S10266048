@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Aeonik Pro;
+    src: url(../assets/fonts/aeonikpro-regular.woff2);
+}
+
+@font-face {
+    font-family: Aeonik Pro;
+    src: url(../assets/fonts/aeonikpro-medium.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Aeonik Pro;
+    src: url(../assets/fonts/aeonikpro-black.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: Aeonik Pro Capitalised;
+    src: url(../assets/fonts/aeonikpro-black-capitalised.woff2);
+    font-weight: 900;
+}
+
+body {
+    font-family: 'Aeonik Pro', sans-serif;
+}
+
+nav {
+    border-bottom: 1px solid #D7D7D7;
+}
+
+#inner-nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    gap: 2.5rem
+}
+
+#inner-nav-bar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+#menu-bar-logo {
+    height: 28px;
+}
+
+#menu-bar-icon {
+    display: none;
+}
+
+.mobile-nav-item {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    #inner-nav-bar {
+        gap: 1rem;
+    }
+
+    #menu-bar-logo {
+        display: none;
+    }
+
+    #menu-bar-icon {
+        display: block;
+        height: 28px;
+    }
+
+    .desktop-nav-item {
+        display: none;
+    }
+
+    .mobile-nav-item {
+        display: block;
+    }
+}
+
+.spacer {
+    flex: 1;
+}
+
+.icon-button-light {
+    border: none;
+    padding: none;
+    background-color: transparent;
+}
+
+.button-light {
+    background-color: #000;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.button-light:hover {
+    background-color: #333;
+}
