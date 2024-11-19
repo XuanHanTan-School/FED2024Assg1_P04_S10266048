@@ -22,11 +22,30 @@
 }
 
 body {
+    box-sizing: border-box;
     font-family: 'Aeonik Pro', sans-serif;
+    padding-top: calc(1rem + 28px + 1rem + 3rem);
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+.tablet {
+    display: none;
+}
+
+.mobile {
+    display: none;
 }
 
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     border-bottom: 1px solid #D7D7D7;
+    background-color: #fff;
 }
 
 #inner-nav-bar {
@@ -46,38 +65,77 @@ nav {
     font-weight: 500;
 }
 
-#menu-bar-logo {
+.menu-bar-icon {
     height: 28px;
 }
 
-#menu-bar-icon {
-    display: none;
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
 }
 
-.mobile-nav-item {
+.section-padded-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    gap: 2rem;
+}
+
+h1 {
+    font-family: 'Aeonik Pro Capitalised', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+#subheader {
+    margin-bottom: 0.5rem;
+}
+
+.main-graphic {
     display: none;
 }
 
 @media screen and (max-width: 1024px) {
+    .desktop {
+        display: none;
+    }
+
+    .tablet {
+        display: block;
+    }
+
+    section {
+        gap: 1.5rem;
+    }
+
+    .section-padded-content {
+        gap: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
     #inner-nav-bar {
         gap: 1rem;
     }
+}
 
-    #menu-bar-logo {
-        display: none;
-    }
-
-    #menu-bar-icon {
+@media screen and (max-width: 576px) {
+    .mobile {
         display: block;
-        height: 28px;
     }
 
-    .desktop-nav-item {
-        display: none;
-    }
-
-    .mobile-nav-item {
+    .main-graphic {
         display: block;
+        width: auto;
+        height: 384px;
+        object-fit: cover;
+        margin-bottom: 2rem;
     }
 }
 
