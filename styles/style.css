@@ -99,6 +99,36 @@ h1 {
     display: none;
 }
 
+#cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0 1rem;
+}
+
+.card {
+    box-sizing: border-box;
+    height: 250px;
+    padding: 1.25rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem
+}
+
+.card .image-container {
+    flex: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.card h5 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
 @media screen and (max-width: 1024px) {
     .desktop {
         display: none;
