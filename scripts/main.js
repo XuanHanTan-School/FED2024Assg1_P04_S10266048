@@ -14,6 +14,7 @@ class Feature {
         const card = document.createElement("div");
         card.classList.add("card");
         card.style.backgroundColor = this.backgroundColor;
+        card.onclick = () => this.openOverlay();
 
         const coverImageContainer = card.appendChild(document.createElement("div"));
         coverImageContainer.classList.add("image-container");
@@ -23,6 +24,56 @@ class Feature {
         cardShortTitle.textContent = this.shortTitle;
 
         htmlElement.appendChild(card);
+    }
+
+    openOverlay() {
+        console.log("Opening overlay");
+        const bgOverlay = document.createElement("div");
+        bgOverlay.classList.add("bg-overlay");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("icon-button-light");
+        closeButton.classList.add("close-button");
+        const closeIcon = document.createElement("i");
+        closeIcon.setAttribute("data-feather", "x");
+        closeButton.appendChild(closeIcon);
+        closeButton.onclick = () => {
+            bgOverlay.remove();
+            overlay.remove();
+        };
+        overlay.appendChild(closeButton);
+
+        const overlayContentInformation = overlay.appendChild(document.createElement("div"));
+        overlayContentInformation.classList.add("overlay-content-information");
+
+        const mainTitle = overlayContentInformation.appendChild(document.createElement("h2"));
+        mainTitle.textContent = this.mainTitle;
+        const description = overlayContentInformation.appendChild(document.createElement("p"));
+        description.textContent = this.description;
+        const interactiveHtml = overlayContentInformation.appendChild(document.createElement("iframe"));
+        interactiveHtml.src = this.interactiveHtmlSrc;
+        
+        const video = overlay.appendChild(document.createElement("video"));
+        video.classList.add("overlay-content-media");
+        if (this.mediaSrc.endsWith(".mp4")) {
+            video.src = this.mediaSrc;
+            video.width = "40%";
+            video.autoplay = true;
+            video.loop = true;
+            video.controls = false;
+        } else {
+            const image = media.appendChild(document.createElement("img"));
+            image.src = this.mediaSrc;
+        }
+
+        const ctaButton = overlayContentInformation.appendChild(document.createElement("button"));
+        ctaButton.textContent = this.ctaButtonTitle;
+
+        document.body.appendChild(bgOverlay);
+        document.body.appendChild(overlay);
+        feather.replace();
     }
 }
 
