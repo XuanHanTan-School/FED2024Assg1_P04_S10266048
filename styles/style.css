@@ -176,8 +176,8 @@ h1 {
     white-space: pre-wrap;
 }
 
-.centered-button {
-    margin: 0 auto;
+.overlay-content-information iframe {
+    border-width: 0;
 }
 
 .overlay-content-media {
@@ -214,6 +214,19 @@ h1 {
     #cards {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .overlay-content-information {
+        width: 100%;
+    }
+
+    .overlay-content-information h2 {
+        width: calc(100% - 48px);
+        font-size: 2rem;
+    }
+
+    .overlay-content-media {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -231,6 +244,32 @@ h1 {
 
     #cards {
         grid-template-columns: 1fr;
+    }
+
+    .bg-overlay {
+        display: none;
+    }
+
+    .overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0px;
+    }
+
+    .overlay .close-button {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .overlay-content-information {
+        padding: calc(1.5rem + 36px) 1.5rem 1.5rem;
+    }
+
+    .overlay-content-information h2 {
+        width: 100%;
+        font-size: 1.5rem;
     }
 }
 
@@ -256,4 +295,16 @@ h1 {
 
 .button-light:hover {
     background-color: #333;
+}
+
+.centered-button {
+    margin: 0 auto;
+}
+
+/* For components */
+.component-body {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0;
+    height: auto;
 }

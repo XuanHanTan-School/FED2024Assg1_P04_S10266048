@@ -90,7 +90,7 @@ const features = [
         "#EFEFEF",
         "Stretch your money\nGreat exchange rates\nFrom Mexico to Morocco",
         "Spend in 150+ countries and stash in 33+ currencies. Join 30+ million others using Revolut to convert money and spend internationally.",
-        "assets/components/feature-1/interactive.html",
+        "components/feature-1/interactive.html",
         "assets/videos/feature-1/video.mp4",
         "Try it out"
     ),
@@ -100,7 +100,7 @@ const features = [
         "#E5ECFF",
         "Make your money\nMake money",
         "Waiting's overrated. Grow your savings faster with interest paid daily at excellent rates, with instant access.",
-        "assets/components/feature-2/interactive.html",
+        "components/feature-2/interactive.html",
         "assets/videos/feature-2/video.mp4",
         "Start saving"
     ),
@@ -110,7 +110,7 @@ const features = [
         "#E7E5FF",
         "Go places with RevPoints",
         "Discover RevPoints — our free points programme offering up to 1 point per £1 spent on your Revolut card depending on your plan. Use your points on rewards including air miles, Stays discounts, and more. RevPoints T&Cs apply.",
-        "assets/components/feature-3/interactive.html",
+        "components/feature-3/interactive.html",
         "assets/images/feature-3/media.png",
         "Download the app"
     ),
@@ -120,7 +120,7 @@ const features = [
         "#FCE7FF",
         "Make your card memorable",
         "Customise it. Personalise it. Make it yours. Fees apply. It can be as simple as a few taps in the app, or your most intricate drawings.",
-        "assets/components/feature-4/interactive.html",
+        "components/feature-4/interactive.html",
         "assets/videos/feature-4/video.mp4",
         "Get my card"
     )
