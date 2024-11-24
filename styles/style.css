@@ -103,7 +103,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    margin: 0 1rem;
+    margin: 0 2rem;
 }
 
 .card {
@@ -147,7 +147,7 @@ h1 {
     right: 2rem;
     bottom: 2rem;
     background-color: #fff;
-    border-radius: 16px;
+    border-radius: 20px;
     z-index: 100;
     display: flex;
     flex-direction: row;
@@ -156,8 +156,8 @@ h1 {
 
 .overlay .close-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 .overlay-content-information {
@@ -165,14 +165,26 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 2rem;
+}
+
+.overlay-content-information h2 {
+    font-size: 2.5rem;
+    font-family: 'Aeonik Pro Capitalised', sans-serif;
+    font-weight: 900;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.centered-button {
+    margin: 0 auto;
 }
 
 .overlay-content-media {
     width: calc(40% - 0.5rem);
     min-height: 100%;
     object-fit: contain;
-} 
+}
 
 @media screen and (max-width: 1024px) {
     .desktop {
