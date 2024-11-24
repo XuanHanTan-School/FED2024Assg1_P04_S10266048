@@ -308,3 +308,7 @@ h1 {
     margin: 0;
     height: auto;
 }
+
+#currency-dropdown {
+    display: absolute;
+}
