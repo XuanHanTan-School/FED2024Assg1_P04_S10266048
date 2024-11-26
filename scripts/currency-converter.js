@@ -59,8 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
             currencySelector.appendChild(option);
         });
 
-        currencySelector.onchange = () => {
+        currencySelector.onchange = async () => {
             selectedCurrencies[i] = currencies[currencySelector.value];
+            const response = await selectedCurrencies[0].convertCurrency(selectedCurrencies[1], parseFloat(value1.value), false);
+            parseCurrencyResponse(response, value2);
         };
 
         currencySelector.value = selectedCurrencies[i].symbol;
