@@ -1,5 +1,5 @@
 class Feature {
-    constructor(shortTitle, coverSrc, backgroundColor, mainTitle, description, interactiveHtmlSrc, mediaSrc, ctaButtonTitle) {
+    constructor(shortTitle, coverSrc, backgroundColor, mainTitle, description, interactiveHtmlSrc, mediaSrc, ctaButtonTitle, options) {
         this.shortTitle = shortTitle;
         this.coverSrc = coverSrc;
         this.backgroundColor = backgroundColor;
@@ -8,6 +8,7 @@ class Feature {
         this.interactiveHtmlSrc = interactiveHtmlSrc;
         this.mediaSrc = mediaSrc;
         this.ctaButtonTitle = ctaButtonTitle;
+        this.options = options;
     }
 
     appendCard(htmlElement) {
@@ -27,12 +28,14 @@ class Feature {
     }
 
     openOverlay() {
-        function resizeIframe(iframe) {
+        const resizeIframe = (iframe) => {
+            if (this.options?.needResizeIframeWidth) {
+                iframe.style.width = iframe.contentWindow.document.body.scrollWidth + 'px';
+            }
             iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-            iframe.style.width = iframe.contentWindow.document.body.scrollWidth + 'px';
         }
 
-        function closeOverlay() {
+        const closeOverlay = () => {
             bgOverlay.remove();
             overlay.remove();
         }
@@ -45,7 +48,7 @@ class Feature {
         overlay.classList.add("overlay");
 
         const closeButton = document.createElement("button");
-        closeButton.classList.add("icon-button-light");
+        closeButton.classList.add("icon-filled-button-light");
         closeButton.classList.add("close-button");
         const closeIcon = document.createElement("i");
         closeIcon.setAttribute("data-feather", "x");
@@ -63,12 +66,15 @@ class Feature {
         const interactiveHtml = overlayContentInformation.appendChild(document.createElement("iframe"));
         interactiveHtml.src = this.interactiveHtmlSrc;
         interactiveHtml.onload = () => resizeIframe(interactiveHtml);
+        if (this.options?.needResizeIframeWidth) {
+            interactiveHtml.classList.add("centered");
+        }
 
         const ctaButtonAnchor = overlayContentInformation.appendChild(document.createElement("a"));
         ctaButtonAnchor.href = "https://get.revolut.com/E528/?af_channel=website_direct&af_dp=revolut%3A%2F%2Fapp&af_sub1=%7B%22conversion_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2Fen-SG%2F%22%2C%22cookie_consent%22%3A%5B%5D%2C%22landing_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2F%22%2C%22qr_code%22%3Afalse%2C%22website_client_id%22%3A%221a3e65d6-7c4a-465c-857d-46cc9c94e095%22%7D&deep_link_sub1=DEEPLINK&deep_link_value=revolut%3A%2F%2Fapp&pid=website";
-        ctaButtonAnchor.classList.add("centered-button");
+        ctaButtonAnchor.classList.add("centered");
         const ctaButton = ctaButtonAnchor.appendChild(document.createElement("button"))
-        ctaButton.classList.add("button-light")
+        ctaButton.classList.add("filled-button-light")
         ctaButton.textContent = this.ctaButtonTitle;
         
         if (this.mediaSrc.endsWith(".mp4")) {
@@ -101,7 +107,10 @@ const features = [
         "Spend in 150+ countries and stash in 33+ currencies. Join 30+ million others using Revolut to convert money and spend internationally.",
         "components/feature-1/interactive.html",
         "assets/videos/feature-1/video.mp4",
-        "Try it out"
+        "Try it out",
+        {
+            needResizeIframeWidth: true
+        }
     ),
     new Feature(
         "Earn up to 4.75% interest on savings, paid every day",
@@ -111,7 +120,10 @@ const features = [
         "Waiting's overrated. Grow your savings faster with interest paid daily at excellent rates, with instant access. Get up to 4.75% p.a. on your British Pound savings.",
         "components/feature-2/interactive.html",
         "assets/videos/feature-2/video.mp4",
-        "Start saving"
+        "Start saving",
+        {
+            needResizeIframeWidth: true
+        }
     ),
     new Feature(
         "Get miles and savings with RevPoints for daily expenses",
