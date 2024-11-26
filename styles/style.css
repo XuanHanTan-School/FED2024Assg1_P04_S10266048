@@ -70,11 +70,11 @@ nav {
 }
 
 section {
-    flex: 1;
     display: flex;
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .section-padded-content {
@@ -177,6 +177,10 @@ h1 {
     white-space: pre-wrap;
 }
 
+.overlay-content-information p {
+    white-space: pre-wrap;
+}
+
 .overlay-content-information iframe {
     border-width: 0;
     flex: 1;
@@ -187,6 +191,24 @@ h1 {
     min-height: 100%;
     object-fit: contain;
     border-radius: 20px;
+}
+
+@media screen and (min-width: 2048px) {
+    #cards {
+        margin: 0 4rem;
+        gap: 2rem;
+    }
+    
+    .card {
+        height: 350px;
+    }
+
+    .overlay {
+        top: 8rem;
+        left: 8rem;
+        right: 8rem;
+        bottom: 8rem;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -218,6 +240,10 @@ h1 {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .overlay .close-button {
+        top: 2.25rem;
+    }
+
     .overlay-content-information {
         width: 100%;
     }
@@ -235,6 +261,10 @@ h1 {
 @media screen and (max-width: 576px) {
     .mobile {
         display: block;
+    }
+
+    section {
+        height: calc(100dvh - (1rem + 28px + 1rem + 3rem) - 2rem);
     }
 
     .main-graphic {

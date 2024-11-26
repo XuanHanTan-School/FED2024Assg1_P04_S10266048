@@ -61,13 +61,22 @@ class Feature {
 
         const mainTitle = overlayContentInformation.appendChild(document.createElement("h2"));
         mainTitle.textContent = this.mainTitle;
-        const description = overlayContentInformation.appendChild(document.createElement("p"));
-        description.textContent = this.description;
-        const interactiveHtml = overlayContentInformation.appendChild(document.createElement("iframe"));
-        interactiveHtml.src = this.interactiveHtmlSrc;
-        interactiveHtml.onload = () => resizeIframe(interactiveHtml);
-        if (this.options?.needResizeIframeWidth) {
-            interactiveHtml.classList.add("centered");
+        
+        if (this.description) {
+            const description = overlayContentInformation.appendChild(document.createElement("p"));
+            description.textContent = this.description;
+        }
+        
+        if (this.interactiveHtmlSrc) {
+            const interactiveHtml = overlayContentInformation.appendChild(document.createElement("iframe"));
+            interactiveHtml.src = this.interactiveHtmlSrc;
+            interactiveHtml.onload = () => resizeIframe(interactiveHtml);
+            if (this.options?.needResizeIframeWidth) {
+                interactiveHtml.classList.add("centered");
+            }
+        } else {
+            const spacer = overlayContentInformation.appendChild(document.createElement("div"));
+            spacer.classList.add("spacer");
         }
 
         const ctaButtonAnchor = overlayContentInformation.appendChild(document.createElement("a"));
@@ -144,7 +153,47 @@ const features = [
         "components/feature-4/interactive.html",
         "assets/videos/feature-4/video.mp4",
         "Get my card"
-    )
+    ),
+    new Feature(
+        "Create virtual and disposable cards for the sites you don't trust",
+        "assets/images/feature-5/cover.png",
+        "#FCE7FF",
+        "Don't trust?\nNo problem",
+        "Virtual and disposable cards allow you to create cards for each seller and freeze them after use, or set strict spending limits every month. This ensures a malicious seller will not set you back.\n\nDon't limit yourself to just one card — get two, three, or 13.",
+        undefined,
+        "assets/videos/feature-5/video.mp4",
+        "Get my card"
+    ),
+    new Feature(
+        "Split bills and send money just like sending a text message",
+        "assets/images/feature-6/cover.png",
+        "#E5ECFF",
+        "Simply hit send",
+        undefined,
+        "components/feature-6/interactive.html",
+        "assets/videos/feature-6/video.mp4",
+        "Try it out"
+    ),
+    new Feature(
+        "Invest in your future and make your money do more",
+        "assets/images/feature-7/cover.png",
+        "#EFEFEF",
+        "Time to trade up",
+        "Invest in your future and make your money do more for you.\nThousands of stocks at your fingertips, starting at just $1.",
+        "components/feature-7/interactive.html",
+        "assets/videos/feature-7/video.mp4",
+        "Start trading"
+    ),
+    new Feature(
+        "Protect your money with no-compromise data security",
+        "assets/images/feature-8/cover.png",
+        "#E7E5FF",
+        "Your money's safe space",
+        "45+ million trust us to look after more than $30.3 billion of their money. Protect yours with state-of-the-smart defences, then personalise your settings to stay in complete control.\n\nRevolut Secure means keeping your money safe — and you in control. The shield is a reminder that our always-on monitoring system and 4,000-strong, 24/7 financial crime team are on the lookout with you. Keep an eye out for anything unusual — and if there's a warning, take note, take action, then breathe easy.",
+        undefined,
+        "assets/images/feature-8/media.png",
+        "Get started"
+    ),
 ]
 
 
