@@ -165,7 +165,7 @@ h1 {
     width: calc(60% - 0.5rem);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 2rem;
 }
 
@@ -179,6 +179,8 @@ h1 {
 
 .overlay-content-information iframe {
     border-width: 0;
+    flex: 1;
+    margin: 0 auto;
 }
 
 .overlay-content-media {
@@ -309,6 +311,7 @@ h1 {
     padding-bottom: 0 !important;
     margin: 0;
     height: auto;
+    width: min-content;
 }
 
 .interactive-card {
@@ -316,7 +319,6 @@ h1 {
     background-color: #F9F9F9;
     border: 2px solid #D7D7D7;
     border-radius: 16px;
-    width: min-content;
 }
 
 .currency-dropdown {
@@ -331,6 +333,7 @@ h1 {
 .amount-selector {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .amount-selector input {
@@ -345,7 +348,31 @@ h1 {
     width: 96px;
 }
 
-#exchange-rate {
+.amount-selector h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: auto;
+}
+
+.amount-selector p {
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.period-dropdown {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    outline: none;
+    margin-right: auto;
+}
+
+.additional-info {
     margin-top: 1rem;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;

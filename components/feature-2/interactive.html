@@ -5,21 +5,28 @@
         <link rel="stylesheet" type="text/css" href="../../styles/style.css">
         <script src="https://unpkg.com/feather-icons"></script>
         <script src="../../scripts/classes/currency.js" type="module"></script>
-        <script src="../../scripts/currency-converter.js" type="module"></script>
+        <script src="../../scripts/interest-calculator.js" type="module"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
     </head>
     <body class="component-body">
         <div class="interactive-card">
             <div class="amount-selector">
-                <select class="currency-dropdown" id="currency1"></select>
-                <input type="number" id="value1"></input>
+                <select class="currency-dropdown" id="currency"></select>
+                <input type="number" id="principal"></input>
             </div>
             <div class="amount-selector">
-                <select class="currency-dropdown" id="currency2"></select>
-                <input type="number" id="value2"></input>
+                <select class="period-dropdown" id="period-type">
+                    <option value="months">Months</option>
+                    <option value="years">Years</option>
+                </select>
+                <input type="number" id="period"></input>
             </div>
-            <p class="additional-info" id="exchange-rate"></p>
+            <div class="amount-selector">
+                <h3>Total</h3>
+                <p id="total"></p>
+            </div>
+            <p class="additional-info" id="interest-rate"></p>
         </div>
     </body>
 </html>
