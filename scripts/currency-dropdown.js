@@ -46,7 +46,7 @@ const currencies = {
     "EUR": new Currency("EUR", "Euro", "🇪🇺"),
     "USD": new Currency("USD", "US Dollar", "🇺🇸"),
     "PLN": new Currency("PLN", "Polish Zloty", "🇵🇱"),
-    "AED": new Currency("AED", "United Arab Emirates Dirham", "🇦🇪"),
+    "AED": new Currency("AED", "UAE Dirham", "🇦🇪"),
     "AUD": new Currency("AUD", "Australian Dollar", "🇦🇺"),
     "BGN": new Currency("BGN", "Bulgarian Lev", "🇧🇬"),
     "CAD": new Currency("CAD", "Canadian Dollar", "🇨🇦"),

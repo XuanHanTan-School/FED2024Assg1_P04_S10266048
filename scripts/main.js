@@ -40,6 +40,7 @@ class Feature {
         closeIcon.setAttribute("data-feather", "x");
         closeButton.appendChild(closeIcon);
         closeButton.onclick = () => {
+            console.log("closing")
             bgOverlay.remove();
             overlay.remove();
         };
@@ -58,9 +59,11 @@ class Feature {
         const spacer = overlayContentInformation.appendChild(document.createElement("div"));
         spacer.classList.add("spacer");
 
-        const ctaButton = overlayContentInformation.appendChild(document.createElement("button"));
+        const ctaButtonAnchor = overlayContentInformation.appendChild(document.createElement("a"));
+        ctaButtonAnchor.href = "https://get.revolut.com/E528/?af_channel=website_direct&af_dp=revolut%3A%2F%2Fapp&af_sub1=%7B%22conversion_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2Fen-SG%2F%22%2C%22cookie_consent%22%3A%5B%5D%2C%22landing_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2F%22%2C%22qr_code%22%3Afalse%2C%22website_client_id%22%3A%221a3e65d6-7c4a-465c-857d-46cc9c94e095%22%7D&deep_link_sub1=DEEPLINK&deep_link_value=revolut%3A%2F%2Fapp&pid=website";
+        ctaButtonAnchor.classList.add("centered-button");
+        const ctaButton = ctaButtonAnchor.appendChild(document.createElement("button"))
         ctaButton.classList.add("button-light")
-        ctaButton.classList.add("centered-button");
         ctaButton.textContent = this.ctaButtonTitle;
         
         if (this.mediaSrc.endsWith(".mp4")) {
@@ -79,6 +82,7 @@ class Feature {
 
         document.body.appendChild(bgOverlay);
         document.body.appendChild(overlay);
+
         feather.replace();
     }
 }

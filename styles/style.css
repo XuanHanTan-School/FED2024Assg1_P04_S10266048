@@ -158,13 +158,14 @@ h1 {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+    z-index: 200;
 }
 
 .overlay-content-information {
     width: calc(60% - 0.5rem);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 2rem;
 }
 
@@ -181,9 +182,10 @@ h1 {
 }
 
 .overlay-content-media {
-    width: calc(40% - 0.5rem);
+    width: calc(40% - 0.5rem + 1px);
     min-height: 100%;
     object-fit: contain;
+    border-radius: 20px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -309,27 +311,48 @@ h1 {
     height: auto;
 }
 
+.interactive-card {
+    padding: 0.75rem;
+    background-color: #F9F9F9;
+    border: 2px solid #D7D7D7;
+    border-radius: 16px;
+    width: min-content;
+}
+
 .currency-dropdown {
     appearance: none;
     background-color: transparent;
     border: none;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding: 0.5rem;
     outline: none;
+}
+
+.amount-selector {
+    display: flex;
+    flex-direction: row;
 }
 
 .amount-selector input {
     appearance: none;
     background-color: transparent;
     border: none;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     padding: 0.5rem;
     outline: none;
     text-align: right;
-    width: 128px;
+    width: 96px;
 }
 
+#exchange-rate {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: gray;
+}
+
+/* Misc adjustments */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
