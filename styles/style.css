@@ -25,10 +25,8 @@ body {
     box-sizing: border-box;
     font-family: 'Aeonik Pro', sans-serif;
     padding-top: calc(1rem + 28px + 1rem + 3rem);
-    padding-bottom: 3rem;
     display: flex;
     flex-direction: column;
-    height: 100dvh;
 }
 
 .tablet {
@@ -74,7 +72,8 @@ section {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 .section-padded-content {
@@ -263,8 +262,8 @@ h1 {
         display: block;
     }
 
-    section {
-        height: calc(100dvh - (1rem + 28px + 1rem + 3rem) - 2rem);
+    .start-section {
+        height: calc(100svh - (1rem + 28px + 1rem + 3rem) - 1rem - 2rem);
     }
 
     .main-graphic {
