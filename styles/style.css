@@ -41,11 +41,13 @@ body {
 }
 
 .filled-button-light {
+    text-decoration: none;
     background-color: #000;
     transition-property: background-color;
     transition-duration: 300ms;
     border: none;
-    color: #fff;
+    color: #fff !important;
+    font-weight: 400 !important;
     padding: 10px 20px;
     border-radius: 50px;
 }
