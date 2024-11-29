@@ -60,7 +60,6 @@ class Feature {
             overlay.remove();
         }
 
-        console.log("Opening overlay");
         // Create the overlay
         const bgOverlay = document.createElement("div");
         bgOverlay.classList.add("bg-overlay");
@@ -79,7 +78,7 @@ class Feature {
         overlay.appendChild(closeButton);
 
         // Create the overlay content
-        const overlayContentInformation = overlay.appendChild(document.createElement("div"));
+        const overlayContentInformation = overlay.appendChild(document.createElement("article"));
         overlayContentInformation.classList.add("overlay-content-information");
 
         const mainTitle = overlayContentInformation.appendChild(document.createElement("h2"));
