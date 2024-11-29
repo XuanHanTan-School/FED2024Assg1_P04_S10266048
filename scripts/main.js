@@ -193,7 +193,7 @@ const features = [
     new Feature(
         "Split bills and send money just like sending a text message",
         "assets/images/feature-6/cover.png",
-        "#E5ECFF",
+        "#E7E5FF",
         "Simply hit send",
         undefined,
         "components/feature-6/interactive.html",
@@ -203,7 +203,7 @@ const features = [
     new Feature(
         "Invest in your future and make your money do more",
         "assets/images/feature-7/cover.png",
-        "#EFEFEF",
+        "#E5ECFF",
         "Time to trade up",
         "Invest in your future and make your money do more for you.\nThousands of stocks at your fingertips, starting at just $1.",
         "components/feature-7/interactive.html",
@@ -213,7 +213,7 @@ const features = [
     new Feature(
         "Protect your money with no-compromise data security",
         "assets/images/feature-8/cover.png",
-        "#E7E5FF",
+        "#EFEFEF",
         "Your money's safe space",
         "45+ million trust us to look after more than $30.3 billion of their money. Protect yours with state-of-the-smart defences, then personalise your settings to stay in complete control.\n\nRevolut Secure means keeping your money safe — and you in control. The shield is a reminder that our always-on monitoring system and 4,000-strong, 24/7 financial crime team are on the lookout with you. Keep an eye out for anything unusual — and if there's a warning, take note, take action, then breathe easy.",
         undefined,
