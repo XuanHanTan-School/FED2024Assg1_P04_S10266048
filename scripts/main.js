@@ -1,4 +1,16 @@
 class Feature {
+    /**
+     * @param {string} shortTitle - The home page 2-line description of the feature
+     * @param {string} coverSrc - The image source of the feature card cover
+     * @param {string} backgroundColor - The background color of the feature card
+     * @param {string} mainTitle - The overlay headline title of the feature
+     * @param {string} description - The overlay description of the feature
+     * @param {string} interactiveHtmlSrc - The source of the interactive HTML content in the overlay, if any
+     * @param {string} mediaSrc - The source of the media content in the overlay (image or video) 
+     * @param {string} ctaButtonTitle - The title of the call-to-action button in the overlay
+     * @param {boolean} options.needResizeIframeWidth - Whether the iframe in the overlay needs to be resized to the width of the content inside it
+     * @returns {Feature} The feature object
+     */
     constructor(shortTitle, coverSrc, backgroundColor, mainTitle, description, interactiveHtmlSrc, mediaSrc, ctaButtonTitle, options) {
         this.shortTitle = shortTitle;
         this.coverSrc = coverSrc;
@@ -11,6 +23,11 @@ class Feature {
         this.options = options;
     }
 
+    /**
+     * This method appends the feature card to the given HTML element.
+     * 
+     * @param {HTMLElement} htmlElement - The HTML element to append the feature card to
+     */
     appendCard(htmlElement) {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -27,6 +44,9 @@ class Feature {
         htmlElement.appendChild(card);
     }
 
+    /**
+     * This method opens the overlay of the feature.
+     */
     openOverlay() {
         const resizeIframe = (iframe) => {
             if (this.options?.needResizeIframeWidth) {
@@ -41,12 +61,14 @@ class Feature {
         }
 
         console.log("Opening overlay");
+        // Create the overlay
         const bgOverlay = document.createElement("div");
         bgOverlay.classList.add("bg-overlay");
         bgOverlay.onclick = closeOverlay;
         const overlay = document.createElement("div");
         overlay.classList.add("overlay");
 
+        // Create the close button
         const closeButton = document.createElement("button");
         closeButton.classList.add("icon-filled-button-light");
         closeButton.classList.add("close-button");
@@ -56,6 +78,7 @@ class Feature {
         closeButton.onclick = closeOverlay;
         overlay.appendChild(closeButton);
 
+        // Create the overlay content
         const overlayContentInformation = overlay.appendChild(document.createElement("div"));
         overlayContentInformation.classList.add("overlay-content-information");
 
@@ -79,6 +102,7 @@ class Feature {
             spacer.classList.add("spacer");
         }
 
+        // Create the call-to-action button
         const ctaButtonAnchor = overlayContentInformation.appendChild(document.createElement("a"));
         ctaButtonAnchor.href = "https://get.revolut.com/E528/?af_channel=website_direct&af_dp=revolut%3A%2F%2Fapp&af_sub1=%7B%22conversion_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2Fen-SG%2F%22%2C%22cookie_consent%22%3A%5B%5D%2C%22landing_page_url%22%3A%22https%3A%2F%2Fwww.revolut.com%2F%22%2C%22qr_code%22%3Afalse%2C%22website_client_id%22%3A%221a3e65d6-7c4a-465c-857d-46cc9c94e095%22%7D&deep_link_sub1=DEEPLINK&deep_link_value=revolut%3A%2F%2Fapp&pid=website";
         ctaButtonAnchor.classList.add("centered");
@@ -86,6 +110,7 @@ class Feature {
         ctaButton.classList.add("filled-button-light")
         ctaButton.textContent = this.ctaButtonTitle;
         
+        // Create the overlay media content
         if (this.mediaSrc.endsWith(".mp4")) {
             const video = overlay.appendChild(document.createElement("video"));
             video.classList.add("overlay-content-media");
@@ -100,6 +125,7 @@ class Feature {
             image.src = this.mediaSrc;
         }
 
+        // Render the overlay
         document.body.appendChild(bgOverlay);
         document.body.appendChild(overlay);
 
@@ -199,6 +225,8 @@ const features = [
 
 document.addEventListener("DOMContentLoaded", () => {  
     const cardsDiv = document.getElementById("cards");
+
+    // Append each feature card to the cards div
     for (const feature of features) {
         feature.appendCard(cardsDiv);
     }

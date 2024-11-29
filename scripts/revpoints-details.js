@@ -24,5 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ),
     ]
 
+    // Render the detail options
     DetailOption.renderDetailOptions(detailOptions, document);
 });

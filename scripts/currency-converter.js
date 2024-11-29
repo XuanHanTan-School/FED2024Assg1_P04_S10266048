@@ -48,10 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let selectedCurrencies = [currencies["USD"], currencies["SGD"]];
 
+    // Initialize currency selectors
     const currencySelectors = document.getElementsByClassName("currency-dropdown");
     for (let i = 0; i < currencySelectors.length; i++) {
         const currencySelector = currencySelectors[i];
 
+        // Populate the currency selector with options
         Object.values(currencies).forEach(currency => {
             const option = document.createElement("option");
             option.value = currency.symbol;
@@ -59,20 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
             currencySelector.appendChild(option);
         });
 
+        // Change the selected currency and convert the currency when the currency is changed
         currencySelector.onchange = async () => {
             selectedCurrencies[i] = currencies[currencySelector.value];
             const response = await selectedCurrencies[0].convertCurrency(selectedCurrencies[1], parseFloat(value1.value), false);
             parseCurrencyResponse(response, value2);
         };
 
+        // Set the currency to the default currency
         currencySelector.value = selectedCurrencies[i].symbol;
     }
 
+    // Initialize currency values
     const exchangeRateText = document.getElementById("exchange-rate");
     const value1 = document.getElementById("value1");
     value1.value = "1000.00";
     const value2 = document.getElementById("value2");
 
+    // Convert the currency when the value is changed
     value1.oninput = async () => {
         if (!Currency.validateCurrencyInput(value1)) return;
         const response = await selectedCurrencies[0].convertCurrency(selectedCurrencies[1], parseFloat(value1.value), false);
@@ -84,5 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         parseCurrencyResponse(response, value1);
     };
 
+    // Convert the currency when the page is loaded
     value1.oninput();
 });

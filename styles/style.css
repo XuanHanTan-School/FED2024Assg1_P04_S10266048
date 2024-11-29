@@ -21,12 +21,55 @@
     font-weight: 900;
 }
 
+/* Global styles */
 body {
     box-sizing: border-box;
     font-family: 'Aeonik Pro', sans-serif;
     padding-top: calc(1rem + 28px + 1rem + 3rem);
     display: flex;
     flex-direction: column;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.icon-filled-button-light {
+    border: none;
+    padding: none;
+    background-color: transparent;
+}
+
+.filled-button-light {
+    background-color: #000;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.filled-button-light:hover {
+    background-color: #333;
+}
+
+.outlined-button-light {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    border: 2px solid #000;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.outlined-button-light:hover {
+    background-color: #EAEAEA;
+}
+
+.centered {
+    margin: 0 auto;
 }
 
 .tablet {
@@ -37,6 +80,7 @@ body {
     display: none;
 }
 
+/* For the nav bar */
 nav {
     position: fixed;
     top: 0;
@@ -67,6 +111,7 @@ nav {
     height: 28px;
 }
 
+/* For the main content */
 section {
     display: flex;
     flex-direction: column;
@@ -129,6 +174,7 @@ h1 {
     min-height: 2rem;
 }
 
+/* For the overlay */
 .bg-overlay {
     position: fixed;
     top: 0;
@@ -192,7 +238,9 @@ h1 {
     border-radius: 20px;
 }
 
+/* Extra large screens */
 @media screen and (min-width: 2048px) {
+    /* For the main content */
     #cards {
         margin: 0 4rem;
         gap: 2rem;
@@ -202,6 +250,7 @@ h1 {
         height: 350px;
     }
 
+    /* For the overlay */
     .overlay {
         top: 8rem;
         left: 8rem;
@@ -210,7 +259,9 @@ h1 {
     }
 }
 
+/* Mid-size screens */
 @media screen and (max-width: 1024px) {
+    /* Global styles */
     .desktop {
         display: none;
     }
@@ -219,6 +270,7 @@ h1 {
         display: block;
     }
 
+    /* For the main content */
     section {
         gap: 1.5rem;
     }
@@ -239,6 +291,7 @@ h1 {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* For the overlay */
     .overlay .close-button {
         top: 2.25rem;
     }
@@ -257,11 +310,14 @@ h1 {
     }
 }
 
+/* Mobile phone screens */
 @media screen and (max-width: 576px) {
+    /* Global styles */
     .mobile {
         display: block;
     }
 
+    /* For the main content */
     .start-section {
         height: calc(100svh - (1rem + 28px + 1rem + 3rem) - 1rem - 2rem);
     }
@@ -278,6 +334,7 @@ h1 {
         grid-template-columns: 1fr;
     }
 
+    /* For the overlay */
     .bg-overlay {
         display: none;
     }
@@ -305,49 +362,8 @@ h1 {
     }
 }
 
-.spacer {
-    flex: 1;
-}
 
-.icon-filled-button-light {
-    border: none;
-    padding: none;
-    background-color: transparent;
-}
-
-.filled-button-light {
-    background-color: #000;
-    transition-property: background-color;
-    transition-duration: 300ms;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-
-.filled-button-light:hover {
-    background-color: #333;
-}
-
-.outlined-button-light {
-    background-color: transparent;
-    transition-property: background-color;
-    transition-duration: 300ms;
-    border: 2px solid #000;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-
-.outlined-button-light:hover {
-    background-color: #EAEAEA;
-}
-
-.centered {
-    margin: 0 auto;
-}
-
-/* For components */
+/* For interactive components */
 .component-body {
     padding-top: 0 !important;
     padding-bottom: 0 !important;

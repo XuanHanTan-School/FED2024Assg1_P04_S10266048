@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = document.getElementById("total");
     const interestRate = document.getElementById("interest-rate");
 
+    /**
+     * This function calculates and displays the interest + principal amount.
+     */
     function displayInterestAmount() {
         const principalValue = parseInt(principal.value);
         const periodValue = parseInt(period.value);
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         interestRate.textContent = `${(selectedCurrency.interestRate * 100).toFixed(2)}% p.a. interest rate`;
     }
 
+    // Initialize currency selector
     const currencySelector = document.getElementById("currency");
     Object.values(currencies).forEach(currency => {
         const option = document.createElement("option");
@@ -32,12 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
         option.textContent = `${currency.emoji} ${currency.name}`;
         currencySelector.appendChild(option);
     });
+
+    // Change the selected currency and display the interest amount when the currency is changed
     currencySelector.onchange = () => {
         selectedCurrency = currencies[currencySelector.value];
         displayInterestAmount();
     };
+
+    // Set the currency to the default currency
     currencySelector.value = selectedCurrency.symbol;
     
+
+    // Initialize principal and period input elements and display the interest amount when the value is changed
     principal.oninput = () => {
         const principalValue = period.value;
         if (isNaN(parseInt(principalValue))) {
@@ -61,5 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     period.value = "3";
 
+    // Display the interest amount when the page is loaded
     displayInterestAmount();
 });

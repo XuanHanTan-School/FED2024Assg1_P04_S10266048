@@ -1,4 +1,14 @@
+/**
+ * This is a class that represents a currency.
+ */
 export default class Currency {
+    /**
+     * @param {string} symbol - The symbol of the currency
+     * @param {string} name - The name of the currency
+     * @param {string} emoji - The emoji of the currency
+     * @param {number} interestRate - The interest rate of the currency
+     * @returns {Currency} The currency object
+     */
     constructor(symbol, name, emoji, interestRate) {
         this.symbol = symbol;
         this.name = name;
@@ -6,6 +16,14 @@ export default class Currency {
         this.interestRate = interestRate;
     }
 
+    /**
+     * This method converts a currency to another currency.
+     * 
+     * @param {string} otherCurrency - The other currency
+     * @param {number} source - The source value
+     * @param {boolean} isRecipientAmount - When true, the source value will be of the other currency. When false, the source value will be of this currency.
+     * @returns {Promise} A promise that resolves to an object containing the value of the currency that is not the source and the exchange rate.
+     */
     async convertCurrency(otherCurrency, source, isRecipientAmount) {
         const response = await fetch(`https://hexarate.paikama.co/api/rates/latest/${this.symbol}?target=${otherCurrency.symbol}`)
         const data = await response.json();
@@ -24,6 +42,12 @@ export default class Currency {
         };
     }
 
+    /**
+     * This method validates the input of a currency.
+     * 
+     * @param {HTMLInputElement} input - The input element to validate.
+     * @returns {boolean} True if the input is valid, false otherwise.
+     */
     static validateCurrencyInput(input) {
         // Get the current value of the input
         const inputValue = input.value;

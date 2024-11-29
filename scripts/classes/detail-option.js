@@ -1,10 +1,25 @@
+/**
+ * This class represents a detail option (used for showing tabs with more information).
+ */
 export default class DetailOption {
+    /**
+     * @param {string} name The header of the detail option
+     * @param {string} description The description of the detail option
+     * @param {string} image The image source of the detail option
+     * @returns {DetailOption} The detail option object
+     */
     constructor(name, description, image) {
         this.name = name;
         this.description = description;
         this.image = image;
     }
     
+    /**
+     * This method renders the UI of a single detail option.
+     * 
+     * @param {Document} document 
+     * @param {HTMLElement} parent 
+     */
     _showDetails(document, parent) {
         // Clear the parent element
         while (parent.firstChild) {
@@ -23,6 +38,12 @@ export default class DetailOption {
         }
     }
 
+    /**
+     * This method renders the UI for viewing multiple detail options.
+     * 
+     * @param {DetailOption[]} detailOptions 
+     * @param {Document} document 
+     */
     static renderDetailOptions(detailOptions, document) {
         const detailsDiv = document.getElementsByClassName("interactive-details")[0];
         const detailsSelector = document.createElement("div");
