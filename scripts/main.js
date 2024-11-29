@@ -122,6 +122,7 @@ class Feature {
             const image = overlay.appendChild(document.createElement("img"));
             image.classList.add("overlay-content-media");
             image.src = this.mediaSrc;
+            image.alt = this.mainTitle;
         }
 
         // Render the overlay

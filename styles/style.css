@@ -1,22 +1,22 @@
 @font-face {
-    font-family: Aeonik Pro;
+    font-family: "Aeonik Pro";
     src: url(../assets/fonts/aeonikpro-regular.woff2);
 }
 
 @font-face {
-    font-family: Aeonik Pro;
+    font-family: "Aeonik Pro";
     src: url(../assets/fonts/aeonikpro-medium.woff2);
     font-weight: 500;
 }
 
 @font-face {
-    font-family: Aeonik Pro;
+    font-family: "Aeonik Pro";
     src: url(../assets/fonts/aeonikpro-black.woff2);
     font-weight: 900;
 }
 
 @font-face {
-    font-family: Aeonik Pro Capitalised;
+    font-family: "Aeonik Pro Capitalised";
     src: url(../assets/fonts/aeonikpro-black-capitalised.woff2);
     font-weight: 900;
 }
@@ -36,7 +36,7 @@ body {
 
 .icon-filled-button-light {
     border: none;
-    padding: none;
+    padding: 0;
     background-color: transparent;
 }
 
